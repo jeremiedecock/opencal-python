@@ -4,8 +4,9 @@
 # OpenCAL version 3.0
 # Copyright (c) 2007,2008 Jérémie Decock (http://www.jdhp.org)
 
+"""OpenCAL's main file."""
+
 import xml.dom.minidom
-import sys
 from Config import CARD_DATABASE
 from Config import GUI
 
