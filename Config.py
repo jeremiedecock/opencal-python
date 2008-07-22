@@ -4,7 +4,7 @@
 # Copyright (c) 2007,2008 Jérémie Decock (http://www.jdhp.org)
 
 ## PC config
-CARD_DATABASE = './user.pkb'
+CARD_DATABASE = '/home/gremy/user_dev.pkb'
 GUI = 'GTK'
 
 ## Hildon config
