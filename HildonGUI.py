@@ -28,7 +28,7 @@ class GUI:
 		self.goodButton = gtk.Button("+")
 		self.badButton = gtk.Button("-")
 		
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
 		self.sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_ALWAYS)
 		self.tw.set_wrap_mode(gtk.WRAP_WORD)
 		self.tw.set_editable(False)
@@ -111,7 +111,7 @@ class GUI:
 	def next(self):
 		self.pile.gotoNextCard()
 		self.card = self.pile.getPointedCard()
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
 		if self.pile.pointerIsOnTheLastCard():
 			self.nextButton.set_sensitive(False)
 		self.prevButton.set_sensitive(True)
@@ -119,7 +119,7 @@ class GUI:
 	def prev(self):
 		self.pile.gotoPrevCard()
 		self.card = self.pile.getPointedCard()
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
 		if self.pile.pointerIsOnTheFirstCard():
 			self.prevButton.set_sensitive(False)
 		self.nextButton.set_sensitive(True)
@@ -131,7 +131,7 @@ class GUI:
 		self.goodButton.set_sensitive(True)
 		self.badButton.set_sensitive(True)
 		#self.tw.get_buffer().set_text("\nANSWER :\n%s\n" % (self.card.getAnswer()))
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n\nANSWER :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion(), self.card.getAnswer()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n\nANSWER :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion(), self.card.getAnswer()))
 
 	def good(self):
 		self.updateCard("GOOD")
@@ -143,7 +143,7 @@ class GUI:
 			self.prevButton.set_sensitive(True)
 		self.goodButton.set_sensitive(False)
 		self.badButton.set_sensitive(False)
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
 
 	def bad(self):
 		self.updateCard("BAD")
@@ -155,7 +155,7 @@ class GUI:
 			self.prevButton.set_sensitive(True)
 		self.goodButton.set_sensitive(False)
 		self.badButton.set_sensitive(False)
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.pile.getReviewedCards() + 1, self.pile.getRemainingCards(), self.card.getGrade(), self.card.getQuestion()))
 
 	def updateCard(self, result):
 		# Write answer and date into xml file

@@ -29,7 +29,7 @@ class GUI:
 		self.goodButton = gtk.Button("Good", gtk.STOCK_ADD)
 		self.badButton = gtk.Button("Bad", gtk.STOCK_REMOVE)
 		
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
 		self.sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_ALWAYS)
 		self.tw.set_wrap_mode(gtk.WRAP_WORD)
 		self.tw.set_editable(False)
@@ -83,14 +83,14 @@ class GUI:
 	
 	def next(self, widget, data=None):
 		self.cardToReview = self.reviewList.nextCard()
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
 		if not self.reviewList.hasNextCard():
 			self.nextButton.set_sensitive(False)
 		self.prevButton.set_sensitive(True)
 
 	def prev(self, widget, data=None):
 		self.cardToReview = self.reviewList.previousCard()
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
 		if not self.reviewList.hasPreviousCard():
 			self.prevButton.set_sensitive(False)
 		self.nextButton.set_sensitive(True)
@@ -102,7 +102,7 @@ class GUI:
 		self.goodButton.set_sensitive(True)
 		self.badButton.set_sensitive(True)
 		#self.tw.get_buffer().set_text("\nANSWER :\n%s\n" % (self.cardToReview.getAnswer()))
-		self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n\nANSWER :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion(), self.cardToReview.getAnswer()))
+		self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n\nANSWER :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion(), self.cardToReview.getAnswer()))
 
 	def good(self, widget, data=None):
 		self.cardToReview.putReview("good")
@@ -120,7 +120,7 @@ class GUI:
 			self.revButton.set_sensitive(True)
 			if self.reviewList.hasPreviousCard():
 				self.prevButton.set_sensitive(True)
-			self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
+			self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
 
 	def bad(self, widget, data=None):
 		self.cardToReview.putReview("bad")
@@ -138,7 +138,7 @@ class GUI:
 			self.revButton.set_sensitive(True)
 			if self.reviewList.hasPreviousCard():
 				self.prevButton.set_sensitive(True)
-			self.tw.get_buffer().set_text("QUESTION %d (r:%d - p:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
+			self.tw.get_buffer().set_text("QUESTION %d (r:%d - g:%d) :\n%s\n" % (self.reviewList.getReviewedCards() + 1, self.reviewList.getRemainingCards(), self.cardToReview.getGrade(), self.cardToReview.getQuestion()))
 
 	def main(self):
 		gtk.main()
