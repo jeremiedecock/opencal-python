@@ -3,7 +3,8 @@
 # OpenCAL version 3.0
 # Copyright (c) 2007,2008 Jérémie Decock (http://www.jdhp.org)
 
-from time import strftime, localtime
+#from time import strftime, localtime
+from datetime import date
 from Config import CARD_DATABASE
 from Config import INSPECTOR
 
@@ -37,7 +38,8 @@ class CardToReview:
 		
 	def putReview(self, result):
 		reviewElement = self.domDocument.createElement('review')
-		reviewElement.setAttribute('rdate', strftime('%Y-%m-%d', localtime()))
+		#reviewElement.setAttribute('rdate', strftime('%Y-%m-%d', localtime()))
+		reviewElement.setAttribute('rdate', date.today().isoformat())
 		reviewElement.setAttribute('result', result)
 		self.cardNode.appendChild(reviewElement)
 		# Chercher de la doc sur writexml() (cf. http://docs.python.org/lib/dom-objects.html)
