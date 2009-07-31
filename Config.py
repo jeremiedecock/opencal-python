@@ -13,6 +13,6 @@ CARD_DATABASE = '/home/gremy/user_dev.pkb'
 #GUI = 'HILDON'
 GUI = 'GTK'
 
-## The name of the inspector to use ('Alan' or 'Brian')
-#INSPECTOR = 'Alan'
-INSPECTOR = 'Brian'
+## The name of the professor to use ('Alan' or 'Ben')
+#PROFESSOR = 'Alan'
+PROFESSOR = 'Ben'

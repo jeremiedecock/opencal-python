@@ -4,7 +4,7 @@
 # Copyright (c) 2007,2008 Jérémie Decock (http://www.jdhp.org)
 
 """
-Brian is a little more professional than Alan.
+Ben is a little more professional than Alan.
 He don't validate reviews when it's too early...
 but he doesn't care about lates.
 """

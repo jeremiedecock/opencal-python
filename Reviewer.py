@@ -6,12 +6,12 @@
 #from time import strftime, localtime
 from datetime import date
 from Config import CARD_DATABASE
-from Config import INSPECTOR
+from Config import PROFESSOR
 
-if INSPECTOR == 'Alan':
-	from InspectorAlan import assess
+if PROFESSOR == 'Alan':
+	from ProfessorAlan import assess
 else:
-	from InspectorBrian import assess
+	from ProfessorBen import assess
 
 ################
 # CardToReview #

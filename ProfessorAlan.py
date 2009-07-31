@@ -5,7 +5,7 @@
 
 """Alan is a lazy guy. He doesn't care about too late or too early reviews."""
 
-#class Inspector:
+#class Professor:
 def assess(cardNode):
 	# vérifier que les noeuds "review" sont bien classés par date croissante
 	grade = 0
