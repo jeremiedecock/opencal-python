@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # OpenCAL version 3.0
-# Copyright (c) 2007,2008 Jérémie Decock (http://www.jdhp.org)
+# Copyright (c) 2007,2008,2010 Jérémie Decock (http://www.jdhp.org)
 
 """Contain all globals containts."""
 
@@ -16,3 +16,6 @@ GUI = 'GTK'
 ## The name of the professor to use ('Alan' or 'Ben')
 #PROFESSOR = 'Alan'
 PROFESSOR = 'Ben'
+
+## The pkb interface
+PKB_INTERFACE = 'minidom'

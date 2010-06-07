@@ -2,25 +2,31 @@
 # -*- coding: utf-8 -*-
 
 # OpenCAL version 3.0
-# Copyright (c) 2007,2008 Jérémie Decock (http://www.jdhp.org)
+# Copyright (c) 2007,2008,2010 Jérémie Decock (http://www.jdhp.org)
 
 """OpenCAL's main file."""
 
-import xml.dom.minidom
 from Config import CARD_DATABASE
 from Config import GUI
+from Config import PKB_INTERFACE
 
 if GUI == 'GTK':
 	from GtkGUI import GUI
 elif GUI == 'HILDON':
 	from HildonGUI import GUI
 
-cardDatabaseFile = open(CARD_DATABASE, 'rU')
-domDocument = xml.dom.minidom.parse(cardDatabaseFile)
-cardDatabaseFile.close() 
+if PKB_INTERFACE == 'minidom':
+    from MinidomPKB import PKB
 
-from Reviewer import ReviewList
-reviewList = ReviewList(domDocument)
+def main():
+    pkb = PKB(CARD_DATABASE)
+    domDocument = pkb.load()
 
-gui = GUI(reviewList)
-gui.main()
+    from Reviewer import ReviewList
+    reviewList = ReviewList(domDocument)
+
+    gui = GUI(reviewList)
+    gui.main()
+
+if __name__ == '__main__':
+    main()

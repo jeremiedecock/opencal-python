@@ -1,0 +1,36 @@
+digraph dependencies {
+    c  [label = "Config.py"];
+    e  [label = "ExportXml.py"];
+    g  [label = "GtkGUI.py"];
+    h  [label = "HildonGUI.py"];
+    o  [label = "OpenCAL.py"];
+    pa [label = "ProfessorAlan.py"];
+    pb [label = "ProfessorBen.py"];
+    r  [label = "Reviewer.py"];
+
+    e -> minidom;
+    e -> sys;
+    e -> c;
+
+    g -> pygtk;
+    g -> gtk;
+    g -> r;
+
+    h -> gtk;
+    h -> hildon;
+    h -> r;
+
+    o -> minidom;
+    o -> c;
+    o -> g;
+    o -> h;
+    o -> r;
+
+    pb -> time;
+    pb -> datetime;
+
+    r -> datetime;
+    r -> c;
+    r -> pa;
+    r -> pb;
+}
